@@ -2,9 +2,9 @@
 <%=link_to "New Video",new_spud_admin_video_path(),:class => "btn btn-primary",:title => "New Video"%>
 <%end%>
 <%=content_for :detail do%>
-	<div class="page_list">
+	<div class="page_list" id="video_list">
 			<%@videos.each do |video|%>
-				<div class="page_row">
+				<div class="page_row" id="video_<%=video.id%>">
 					
 					<span class="row_meta"><%=link_to video.name,edit_spud_admin_video_path(:id => video.id)%></span>
 
@@ -19,5 +19,7 @@
 	</div>
 
 
-	
+<script type="text/javascript">
+$(document).ready(Spud.Admin.Videos.init);
+</script>	
 <%end%>

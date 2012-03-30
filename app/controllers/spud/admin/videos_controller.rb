@@ -1,6 +1,6 @@
 class Spud::Admin::VideosController < Spud::Admin::ApplicationController
 	belongs_to_spud_app :videos
-	layout 'spud/admin/detail'
+	layout 'spud/admin/videos/detail'
 	before_filter :load_video,:only => [:edit,:update,:show,:destroy]
 
 	def index
@@ -50,6 +50,24 @@ class Spud::Admin::VideosController < Spud::Admin::ApplicationController
 	end
 
 	def reorder
+		if params[:order].blank?
+			render :status => 500,:text => nil and return
+		end
+		ids = params[:order].split(",")
+		ids.map! { |i| i.to_i }
+		@videos = SpudVideo.order(:video_order).where(:id => ids).all
+		if !@videos.blank?
+			startOrder = @videos[0].video_order || 0
+			@videos.each do |video|
+				index = ids.index(video.id)
+				video.video_order = startOrder + index
+				video.save
+			end
+
+		end
+
+		render :status => 200,:text => nil
+
 	end
 
 private
