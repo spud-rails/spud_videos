@@ -5,7 +5,7 @@ module Spud
 			engine_name "spud_videos"
 			initializer :admin do
 				Spud::Core.configure do |config|
-				  config.admin_applications += [{:name => "Videos",:thumbnail => "spud/admin/videos_thumb.png",:url => "/spud/admin/videos",:order => 6}]
+				  config.admin_applications += [{:name => "Videos",:thumbnail => "spud/admin/videos_thumb.png",:url => "/spud/admin/videos",:order => 6,:retina => true}]
 				end
 			end
 		end
