@@ -1,0 +1,38 @@
+<%=error_messages_for(f.object)%>
+<fieldset>
+	<legend>Video Details</legend>
+<div class="control-group">
+	<%=f.label :name, :required=>true,:class => "control-label"%>
+	<div class="controls">
+	  <%=f.text_field :name,:title => "",:size=>40%>
+	</div>
+</div>
+
+<div class="control-group">
+	<%=f.label :source, :required=>true,:class => "control-label"%>
+	<div class="controls">
+		<%=f.select :source,[["Youtube","youtube"],["Vimeo","vimeo"]]%>
+	</div>
+</div>
+<div class="control-group">
+	<%=f.label :embed_link, :required=>true,:class => "control-label"%>
+	<div class="controls">
+	  <%=f.text_field :embed_link,:title => "",:size=>40%>
+	  <span class='help-block'>Enter the URL to the video file you would like to use.</span>
+	</div>
+</div>
+
+<div class="control-group">
+	<%=f.label :description,:class => "control-label"%>
+	<div class="controls">
+	  <%=f.text_area :description%>
+	</div>
+</div>
+<div class="control-group">
+	<%=f.label :video_order,:class => "control-label"%>
+	<div class="controls">
+	  <%=f.text_field :video_order,:title => "",:size=>5%>
+	</div>
+</div>
+</fieldset>
+
