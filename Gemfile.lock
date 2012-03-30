@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    spud_videos (0.0.2)
+    spud_videos (0.0.3)
       rails (~> 3.2.2)
       spud_core (>= 0.8.0, < 0.9.0)
 
