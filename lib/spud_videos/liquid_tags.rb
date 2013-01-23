@@ -1,5 +1,6 @@
 require 'liquid'
-require_relative '../../app/helpers/videos_helper'
+require 'csv'
+require_relative '../../app/helpers/spud_videos_helper'
 
 module Spud
   module Videos
@@ -11,8 +12,13 @@ module Spud
       include ActionView::Context
       include SpudVideosHelper
 
-      def initialize(tag_name, set_identifer, tokens)
-        @video = SpudVideo.find_by_identifier(set_identifer)
+      def initialize(tag_name, params, tokens)
+        @params = parse_params params
+        @video = SpudVideo.find_by_identifier(@params[0])
+      end
+
+      def parse_params(params)
+        CSV.parse_line params, {:col_sep => ' '}
       end
 
       def tag_name
@@ -24,8 +30,20 @@ module Spud
       end
 
       def render(context)
-        puts tokens
-        return spud_video(@video)
+        options = {}
+        @params[1..-1].each do |param|
+          if !param.blank?
+            args = param.to_s.split("=")
+            if args[0].downcase == 'width'
+              options[:width] = args[1]
+            elsif args[0].downcase == 'height'
+              options[:height] = args[1]
+            end
+          end
+
+
+        end
+        return spud_video(@video,options)
       end
 
     end

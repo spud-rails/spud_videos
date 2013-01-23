@@ -2,7 +2,7 @@ class SpudVideo < ActiveRecord::Base
 	validates :name, :presence => true
 	validates :source,:presence => true
 	validates :embed_link,:presence => true
-
+  attr_accessible :name, :video_order, :source, :description, :embed_link
   def self.find_by_identifier(identifier)
     if identifier.class == String
       video = SpudVideo.find_by_name(identifier)
