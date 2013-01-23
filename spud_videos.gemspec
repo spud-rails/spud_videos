@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Spud::Videos::VERSION
   s.authors     = ["David Estes"]
   s.email       = ["destes@redwindsw.com"]
-  s.homepage    = "http://github.com/davydotcom/spud_videos"
+  s.homepage    = "http://github.com/spud-rails/spud_videos"
   s.summary     = "Video Management addon for Spud with helpers to render youtube players and vimeo players"
   s.description = "This is a basic vide management admin tool for spud. Useful for allowing customers to add videos to a video library, control order, link to vimeo or youtube."
 
