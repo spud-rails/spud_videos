@@ -42,7 +42,7 @@ module SpudVideosHelper
         <!--  This script tag will cause the Brightcove Players defined above it to be created as soon as the line is read by the browser. If you wish to have the player instantiated only after the rest of the HTML is processed and the page load is complete, remove the line. -->
         "
 
-        return content.html_save
+        return content.html_safe
 		end
 	end
 end
