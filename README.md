@@ -22,7 +22,7 @@ Spud Videos is an engine for managing and embedding Youtube / Vimeo videos, desi
 Spud Videos accepts the following configuration options:
 
 ```ruby
-Spud::Banners.configure do |config|
+Spud::Videos.configure do |config|
   config.base_layout = "application"
   config.enable_videos_route = true
   config.default_dimensions = [560,315]
