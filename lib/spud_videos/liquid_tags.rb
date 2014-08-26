@@ -5,9 +5,6 @@ require_relative '../../app/helpers/spud_videos_helper'
 module Spud
   module Videos
     class VideoTag < Liquid::Tag
-
-      include Sprockets::Rails::Helpers::RailsHelper
-      include Sprockets::Rails::Helpers::IsolatedHelper
       include ActionView::Helpers
       include ActionView::Context
       include SpudVideosHelper
