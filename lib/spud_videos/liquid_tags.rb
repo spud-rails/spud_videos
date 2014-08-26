@@ -6,8 +6,8 @@ module Spud
   module Videos
     class VideoTag < Liquid::Tag
 
-      include Sprockets::Helpers::RailsHelper
-      include Sprockets::Helpers::IsolatedHelper
+      include Sprockets::Rails::Helpers::RailsHelper
+      include Sprockets::Rails::Helpers::IsolatedHelper
       include ActionView::Helpers
       include ActionView::Context
       include SpudVideosHelper
