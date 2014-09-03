@@ -19,7 +19,7 @@ class Spud::Admin::VideosController < Spud::Admin::ApplicationController
 	end
 
 	def create
-		@video = SpudVideo.new(params[:spud_video])
+		@video = SpudVideo.new(video_params)
 		if @video.save
 			flash[:notice] = "Video Saved successfully!"
 		else
@@ -34,7 +34,7 @@ class Spud::Admin::VideosController < Spud::Admin::ApplicationController
 
 	def update
 
-		if @video.update_attributes(params[:spud_video])
+		if @video.update_attributes(video_params)
 			flash[:notice] = "Video Saved successfully!"
 		else
 			flash[:error] = "Error saving video"
@@ -77,5 +77,9 @@ private
 			flash[:error] = "Video not found!"
 			redirect_to spud_admin_videos_url and return
 		end
-	end	
+	end
+
+	def video_params
+		params.require(:spud_video).permit(:name, :video_order, :source, :description, :embed_link)
+	end
 end
